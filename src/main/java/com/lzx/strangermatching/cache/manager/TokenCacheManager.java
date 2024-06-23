@@ -14,8 +14,8 @@ import javax.annotation.PostConstruct;
  */
 @Service
 public class TokenCacheManager {
-    private static final String clientId = "TdYTXYhtILuzOWzesp2i9h3k";
-    private static final String clientSecret = "3TtBZWWANbAsUUmPQrcukxd6v9sGC38P";
+    private static final String clientId = "xxxxxxxxxxxxxxx";
+    private static final String clientSecret = "xxxxxxxxxxxxxxxxxxxx";
 
     private CacheValue<String> accessTokenCache;
 
