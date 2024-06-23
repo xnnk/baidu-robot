@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 /**
  * @ClassName: CacheValue
- * @Description: 缓存模板
+ * @Description: 单值缓存模板
  * @Author: LZX
  * @Date: 2024/6/19 18:07
  */

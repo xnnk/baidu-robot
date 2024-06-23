@@ -2,7 +2,9 @@ package com.lzx.strangermatching.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lzx.strangermatching.cache.service.TokenCacheListener;
+import com.lzx.strangermatching.cache.manager.KeywordCacheManager;
+import com.lzx.strangermatching.cache.manager.TokenCacheManager;
+import com.lzx.strangermatching.cache.pojo.KeywordPojo;
 import com.lzx.strangermatching.service.ERNIEService;
 import com.lzx.strangermatching.util.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -25,14 +27,17 @@ import java.io.IOException;
 public class ERNIEServiceImpl implements ERNIEService {
 
     @Autowired
-    private TokenCacheListener tokenCacheListener;
+    private TokenCacheManager tokenCacheManager;
+
+    @Autowired
+    private KeywordCacheManager keywordCacheManager;
 
     HttpUtil httpUtil = new HttpUtil();
 
     @Override
     public String invokeERNIETiny_Shopping(String body) {
         String url = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/ernie-tiny-8k?access_token=";
-        String accessToken = tokenCacheListener.getAccessToken();
+        String accessToken = tokenCacheManager.getAccessToken();
         url += accessToken;
 
         Request request = httpUtil.createRequest(url, body);
@@ -53,6 +58,12 @@ public class ERNIEServiceImpl implements ERNIEService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public String getIfPresent(String keyword) {
+        KeywordPojo template = keywordCacheManager.getTemplateByKeyword(keyword);
+        return template.getKeywordOutput();
     }
 
 //    private String removeNonEssentialCharacters(String body) {

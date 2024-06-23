@@ -8,4 +8,6 @@ package com.lzx.strangermatching.service;
  */
 public interface ERNIEService {
     public String invokeERNIETiny_Shopping(String body);
+
+    String getIfPresent(String keyword);
 }

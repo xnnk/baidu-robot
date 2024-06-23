@@ -1,4 +1,4 @@
-package com.lzx.strangermatching.config.shrio_realm;
+package com.lzx.strangermatching.config.shiro_realm;
 
 import com.lzx.strangermatching.entity.SysUser;
 import com.lzx.strangermatching.enums.ForbiddenEnum;

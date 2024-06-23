@@ -1,5 +1,7 @@
 package com.lzx.strangermatching.controller.gpt;
 
+import com.alibaba.fastjson.JSON;
+import com.lzx.strangermatching.cache.manager.KeywordCacheManager;
 import com.lzx.strangermatching.request.ShopRobReq;
 import com.lzx.strangermatching.response.R;
 import com.lzx.strangermatching.service.ERNIEService;
@@ -37,6 +39,13 @@ public class ERNIEController {
                 }
                 """, name, highlight);
         String result = ernieService.invokeERNIETiny_Shopping(body);
+        return RUtil.success(result);
+    }
+
+    @PostMapping("/info/shopping/cache")
+    public R createShoppingInfoWithCache(@RequestBody ShopRobReq requestBody) {
+        String keyword = JSON.toJSONString(requestBody);
+        String result = ernieService.getIfPresent(keyword);
         return RUtil.success(result);
     }
 }

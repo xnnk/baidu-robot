@@ -1,6 +1,6 @@
 package com.lzx.strangermatching.config;
 
-import com.lzx.strangermatching.config.shrio_realm.UserRealm;
+import com.lzx.strangermatching.config.shiro_realm.UserRealm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;

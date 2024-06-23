@@ -1,4 +1,4 @@
-package com.lzx.strangermatching.cache.service;
+package com.lzx.strangermatching.cache.manager;
 
 import com.lzx.strangermatching.cache.CacheValue;
 import com.lzx.strangermatching.cache.supplier.AccessTokenSupplier;
@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 
 /**
- * @ClassName: TokenCacheListener
+ * @ClassName: TokenCacheManager
  * @Description:
  * @Author: LZX
  * @Date: 2024/6/19 18:26
  */
 @Service
-public class TokenCacheListener {
-    private static final String clientId = "xxxxxxxxx";
-    private static final String clientSecret = "xxxxxxxxx";
+public class TokenCacheManager {
+    private static final String clientId = "TdYTXYhtILuzOWzesp2i9h3k";
+    private static final String clientSecret = "3TtBZWWANbAsUUmPQrcukxd6v9sGC38P";
 
     private CacheValue<String> accessTokenCache;
 
